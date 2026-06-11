@@ -131,12 +131,8 @@ small,.small{font-size:.875rem;}
   border-bottom:1px solid var(--line);
 }
 .nav-inner{display:flex;align-items:center;gap:2rem;height:4.25rem;}
-.wordmark{
-  font-size:1.05rem;font-weight:700;letter-spacing:.04em;color:var(--navy);
-  text-decoration:none;white-space:nowrap;
-}
-.wordmark span{font-weight:300;color:var(--muted);letter-spacing:.01em;}
-.wordmark:hover{color:var(--navy);}
+.brand{display:inline-flex;align-items:center;text-decoration:none;flex:0 0 auto;}
+.brand img{height:2.15rem;width:auto;display:block;}
 .nav-links{display:flex;align-items:center;gap:1.75rem;margin-left:auto;}
 .nav-links a{
   font-size:.92rem;font-weight:500;color:var(--navy);text-decoration:none;
@@ -289,13 +285,16 @@ small,.small{font-size:.875rem;}
 /* ---------- footer ------------------------------------------------------------------ */
 .footer{border-top:1px solid var(--line);background:var(--paper);}
 .footer-inner{
-  display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 2.5rem;
-  padding-block:2rem;font-size:.875rem;color:var(--muted);
+  display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;
+  gap:2rem 3rem;padding-block:2.75rem;
 }
-.footer b{color:var(--navy);font-weight:600;}
-.footer a{color:var(--body);text-decoration:none;}
-.footer a:hover{color:var(--accent-deep);}
-.footer .who{margin-right:auto;}
+.footer-brand{max-width:26rem;}
+.footer-logo{height:2.6rem;width:auto;display:block;margin-bottom:1rem;}
+.footer .motto{font-size:.92rem;font-weight:300;line-height:1.5;color:var(--muted);}
+.footer-meta{display:grid;gap:.45rem;font-size:.875rem;color:var(--muted);text-align:right;}
+.footer-meta .who b{color:var(--navy);font-weight:600;}
+.footer-meta a{color:var(--body);text-decoration:none;}
+.footer-meta a:hover{color:var(--accent-deep);}
 
 /* ---------- motion (progressive, CSS-only) ------------------------------------------- */
 @supports (animation-timeline: view()){
@@ -328,8 +327,9 @@ small,.small{font-size:.875rem;}
 @media (max-width: 760px){
   .nav-links a.m-hide{display:none;}
   .nav-inner{gap:1rem;}
+  .footer-meta{text-align:left;}
 }
 @media (max-width: 430px){
-  .wordmark span{display:none;}
+  .brand img{height:1.9rem;}
   .btn{padding:.8rem 1.2rem;}
 }
