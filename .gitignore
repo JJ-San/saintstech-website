@@ -1,0 +1,45 @@
+# From X:\STAS\.claude\templates\gitignore.template (STAS standard) + site-specific.
+
+# === OS / editor ===
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
+
+# === IDE ===
+.idea/
+*.iml
+
+# === Secrets / env ===
+.env
+.env.local
+.env.*.local
+*.local
+*.key
+*.pem
+secrets/
+credentials/
+
+# === Python (font tooling) ===
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# === Logs / temp ===
+*.log
+logs/
+tmp/
+temp/
+
+# === Site-specific ===
+# Proof-rule screenshots (transient, reviewed then discarded)
+proofs/
+
+# === Claude Code session artifacts (project-local) ===
+.claude/sessions/handoff.md
+.claude/sessions/active-plan.md
+.claude/sessions/logs/
+.claude/code-reviews/
