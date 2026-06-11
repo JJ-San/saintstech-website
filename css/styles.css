@@ -134,8 +134,8 @@ small,.small{font-size:.875rem;}
 .brand{display:inline-flex;align-items:center;gap:.78rem;text-decoration:none;flex:0 0 auto;
   --logo-nudge:-10%;}   /* optical lift: the swoosh weights the image box high, so the STAS letters need raising to sit on the text */
 .brand-mark{height:2.4rem;width:auto;display:block;transform:translateY(var(--logo-nudge));}
-.brand-name{font-weight:300;font-size:1.06rem;color:var(--muted);white-space:nowrap;letter-spacing:.004em;}
-.brand-name b{font-weight:700;color:var(--navy);letter-spacing:.01em;}
+.brand-name{font-weight:300;font-size:1.05rem;color:var(--muted);white-space:nowrap;letter-spacing:.01em;}
+.brand-name b{font-weight:700;color:var(--navy);letter-spacing:.04em;text-transform:uppercase;}  /* "SAINTS" caps, like the original wordmark */
 .nav-links{display:flex;align-items:center;gap:1.75rem;margin-left:auto;}
 .nav-links a{
   font-size:.92rem;font-weight:500;color:var(--navy);text-decoration:none;
