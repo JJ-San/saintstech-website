@@ -39,7 +39,7 @@ temp/
 proofs/
 
 # === Claude Code session artifacts (project-local) ===
-.claude/sessions/handoff.md
+# handoff.md is intentionally committed here — it's the project blueprint for resuming.
 .claude/sessions/active-plan.md
 .claude/sessions/logs/
 .claude/code-reviews/
