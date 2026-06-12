@@ -38,6 +38,9 @@ temp/
 # Proof-rule screenshots (transient, reviewed then discarded)
 proofs/
 
+# Serena MCP local state
+.serena/
+
 # === Claude Code session artifacts (project-local) ===
 # handoff.md is intentionally committed here — it's the project blueprint for resuming.
 .claude/sessions/active-plan.md
