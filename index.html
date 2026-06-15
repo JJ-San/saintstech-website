@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <!--
-  Render target #3 of X:\STAS\brand\services\services.md (the content master).
-  NOTE 2026-06: copy was revised directly here during the front-end redesign —
-  back-port the new headings/microcopy to the master, then resume the normal
-  "edit master, sync the services sheet" flow. See CLAUDE.md.
+  saintstech.co.nz — single-page site (v3). Render of ../services/services.md.
+  NOTE 2026-06-15: deployed from the website-v2 rebuild. Production assets wired
+  (self-hosted Poppins, real founder photo). The master hero is back-ported; a
+  fuller master reconciliation (FAQ, calculator, restructured sections) is still
+  owed — see CLAUDE.md. Optional later: nav logo image (assets/img/stas-logo.png);
+  CTAs → Microsoft Bookings.
 -->
 <html lang="en-NZ">
 <head>
@@ -16,17 +18,10 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Saints Technologies &amp; Services">
 <meta property="og:title" content="Saints Technologies &amp; Services">
-<meta property="og:description" content="We put AI to work on the jobs your team still does by hand — and we're still there when it needs us.">
+<meta property="og:description" content="Find where AI actually pays off in your business — and where it doesn't. Fixed-price, honest AI and automation for NZ small businesses.">
 <meta property="og:url" content="https://saintstech.co.nz/">
 <meta property="og:image" content="https://saintstech.co.nz/assets/img/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
-<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-<link rel="preload" href="assets/fonts/Poppins-Light.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/Poppins-Regular.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/Poppins-Medium.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/Poppins-Bold.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/styles.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -43,20 +38,46 @@
   "priceRange": "NZ$1,500–NZ$15,000"
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "What happens to our data?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Before anything runs, we set safety rules with you: what can go into AI, and what never does. Those rules are written down, and your team is trained on them."}},
+    {"@type": "Question", "name": "What if it breaks after you leave?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Every build ships with a defect warranty and a support plan from $200/month: monitoring, fixes, and updates when your business changes."}},
+    {"@type": "Question", "name": "Will we be locked into you?",
+     "acceptedAnswer": {"@type": "Answer", "text": "No. Every build is documented, with user guides and an operations manual, and your team is trained to run it without us."}},
+    {"@type": "Question", "name": "Do you work outside Auckland?",
+     "acceptedAnswer": {"@type": "Answer", "text": "STAS is Auckland-based and works with businesses across New Zealand. The first talk is free either way."}},
+    {"@type": "Question", "name": "Is AI actually ready for this?",
+     "acceptedAnswer": {"@type": "Answer", "text": "For some jobs, yes; for others, no. Telling you which is which is the entire point of the assessment. If the honest answer is 'you don't need us', that's what it will say."}}
+  ]
+}
+</script>
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/Poppins-Light.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Poppins-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Poppins-Medium.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Poppins-Bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="nav">
   <div class="container nav-inner">
-    <a class="brand" href="index.html">
-      <img class="brand-mark" src="assets/img/stas-logo.png" alt="" width="360" height="157">
-      <span class="brand-name"><b>Saints</b> Technologies &amp; Services</span>
+    <a class="brand" href="#main">
+      <span class="brand-lockup"><b>Saints</b><span class="bl-rest">&nbsp;Technologies &amp; Services</span></span>
     </a>
     <nav class="nav-links" aria-label="Site">
       <a class="m-hide" href="#how">How it works</a>
       <a class="m-hide" href="#services">Services</a>
-      <a href="about/">About</a>
+      <a class="m-hide" href="#calculator">Calculator</a>
+      <a class="m-hide" href="#about">About</a>
+      <!-- PRODUCTION: point at a Microsoft Bookings page to capture bookings on-site -->
       <a class="btn btn-solid" href="mailto:josiah@saintstech.co.nz?subject=Free%20talk">Book a free talk</a>
     </nav>
   </div>
@@ -67,79 +88,110 @@
   <section class="hero on-dark">
     <div class="container hero-inner">
       <div>
-        <p class="eyebrow lift d1">AI &amp; automation · Auckland, New Zealand</p>
-        <h1 class="display lift d2">We put AI to work on the jobs your team still does by hand&nbsp;— <b>and we're still there when it needs us.</b></h1>
-        <p class="sub lead lift d3">For NZ businesses running on Microsoft 365 and Xero without an IT department: the invoices that arrive in twenty formats, the inbox that needs sorting, the quotes typed in by hand. Those jobs are automatable now — done properly, they stay automated.</p>
-        <div class="cta-row lift d4">
+        <p class="eyebrow lift d1">AI &amp; automation for NZ small business · Auckland</p>
+        <h1 class="display lift d2">Find where AI actually pays off in your business&nbsp;— <b>and where it doesn’t.</b></h1>
+        <p class="sub lead lift d3">We find the work in your business worth automating, even if you’ve no idea where to start.</p>
+        <p class="hero-support lift d4">We build on the tools you already run&nbsp;— like <span class="rotator" id="ww-rotator" aria-label="Xero, MYOB, Microsoft 365"><span class="rot-item">Xero</span><span class="rot-item">MYOB</span><span class="rot-item">Microsoft&nbsp;365</span></span>&nbsp;— and the spreadsheets you live in.</p>
+        <div class="cta-row lift d5">
+          <!-- PRODUCTION: point at a Microsoft Bookings page -->
           <a class="btn btn-light" href="mailto:josiah@saintstech.co.nz?subject=Free%20talk">Book a free talk <span class="arr" aria-hidden="true">&rarr;</span></a>
-          <a class="btn btn-ghost" href="tel:+64211417057">+64 21 141 7057</a>
-        </div>
-        <div class="chips lift d4">
-          <span class="lbl">Works with</span>
-          <span class="chip">Microsoft 365</span>
-          <span class="chip">Xero</span>
-          <span class="chip">Claude</span>
+          <a class="btn btn-ghost" href="#calculator">Run your numbers <span class="arr" aria-hidden="true">&darr;</span></a>
         </div>
       </div>
 
       <figure class="hero-visual lift d5" aria-hidden="true">
-        <svg viewBox="0 0 600 440" xmlns="http://www.w3.org/2000/svg">
+        <svg class="dia-desktop" viewBox="0 0 460 612" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <radialGradient id="glow" cx="50%" cy="50%" r="50%">
               <stop offset="0%" stop-color="#3E9DAE" stop-opacity=".38"/>
               <stop offset="100%" stop-color="#3E9DAE" stop-opacity="0"/>
             </radialGradient>
           </defs>
+          <ellipse cx="230" cy="306" rx="180" ry="200" fill="url(#glow)"/>
 
-          <ellipse cx="320" cy="226" rx="160" ry="140" fill="url(#glow)"/>
+          <!-- one line from the input frame into AI, one from AI into the output frame -->
+          <path class="flow" d="M230 196 L 230 256"/>
+          <path class="flow out" d="M230 356 L 230 416"/>
 
-          <!-- inputs: the jobs done by hand -->
-          <rect class="svg-card" x="12" y="36" width="152" height="56" rx="10"/>
-          <text class="svg-t1" x="30" y="59">Invoice.pdf</text>
-          <text class="svg-t2" x="30" y="77">in twenty formats</text>
+          <!-- input group frame -->
+          <rect class="group-frame" x="64" y="16" width="332" height="172" rx="14"/>
+          <rect class="svg-card" x="84" y="30" width="292" height="44" rx="9"/>
+          <text class="svg-t1" x="104" y="51">Invoice.pdf</text>
+          <text class="svg-t2" x="246" y="51">in twenty formats</text>
+          <rect class="svg-card" x="84" y="82" width="292" height="44" rx="9"/>
+          <text class="svg-t1" x="104" y="103">Inbox</text>
+          <text class="svg-t2" x="246" y="103">47 unsorted, again</text>
+          <rect class="svg-card" x="84" y="134" width="292" height="44" rx="9"/>
+          <text class="svg-t1" x="104" y="155">Quote #1042</text>
+          <text class="svg-t2" x="246" y="155">typed by hand</text>
 
-          <rect class="svg-card" x="12" y="192" width="152" height="56" rx="10"/>
-          <text class="svg-t1" x="30" y="215">Inbox</text>
-          <text class="svg-t2" x="30" y="233">47 unsorted, again</text>
+          <!-- AI node -->
+          <circle class="ring" cx="230" cy="306" r="62"/>
+          <rect class="node-box" x="174" y="258" width="112" height="96" rx="22"/>
+          <text class="node-s" x="230" y="320" text-anchor="middle">AI</text>
 
-          <rect class="svg-card" x="12" y="348" width="152" height="56" rx="10"/>
-          <text class="svg-t1" x="30" y="371">Quote #1042</text>
-          <text class="svg-t2" x="30" y="389">typed by hand</text>
+          <!-- output group frame -->
+          <rect class="group-frame" x="64" y="424" width="332" height="172" rx="14"/>
+          <rect class="svg-card" x="84" y="438" width="292" height="44" rx="9"/>
+          <text class="svg-t1" x="104" y="459">Xero</text>
+          <text class="svg-t2" x="246" y="459">auto-reconciled</text>
+          <circle class="tick-c" cx="356" cy="460" r="8"/>
+          <path class="tick-p" d="M352.3 460.4l2.4 2.4 5-5.3"/>
+          <rect class="svg-card" x="84" y="490" width="292" height="44" rx="9"/>
+          <text class="svg-t1" x="104" y="511">Inbox</text>
+          <text class="svg-t2" x="246" y="511">triaged &amp; sorted</text>
+          <circle class="tick-c" cx="356" cy="512" r="8"/>
+          <path class="tick-p" d="M352.3 512.4l2.4 2.4 5-5.3"/>
+          <rect class="svg-card" x="84" y="542" width="292" height="44" rx="9"/>
+          <text class="svg-t1" x="104" y="563">Quotes</text>
+          <text class="svg-t2" x="246" y="563">drafted &amp; sent</text>
+          <circle class="tick-c" cx="356" cy="564" r="8"/>
+          <path class="tick-p" d="M352.3 564.4l2.4 2.4 5-5.3"/>
+        </svg>
 
-          <!-- flows in -->
-          <path class="flow" d="M164 64 C 222 64 216 206 270 206"/>
-          <path class="flow f2" d="M164 220 C 214 220 220 226 270 226"/>
-          <path class="flow f3" d="M164 376 C 222 376 216 246 270 246"/>
+        <svg class="dia-mobile" viewBox="0 0 360 600" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="glow-m" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#3E9DAE" stop-opacity=".38"/>
+              <stop offset="100%" stop-color="#3E9DAE" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <ellipse cx="180" cy="300" rx="150" ry="190" fill="url(#glow-m)"/>
 
-          <!-- the automation node -->
-          <circle class="ring" cx="320" cy="226" r="58"/>
-          <rect class="node-box" x="270" y="176" width="100" height="100" rx="24"/>
-          <text class="node-s" x="320" y="242" text-anchor="middle">S</text>
-          <text class="svg-cap" x="320" y="314" text-anchor="middle">runs on schedule, every time</text>
+          <path class="flow" d="M180 192 L 180 250"/>
+          <path class="flow out" d="M180 350 L 180 408"/>
 
-          <!-- flows out -->
-          <path class="flow out" d="M370 206 C 412 206 398 64 436 64"/>
-          <path class="flow out f2" d="M370 226 C 408 226 402 220 436 220"/>
-          <path class="flow out f3" d="M370 244 C 412 244 398 376 436 376"/>
+          <rect class="group-frame" x="20" y="14" width="320" height="170" rx="14"/>
+          <rect class="svg-card" x="38" y="28" width="284" height="44" rx="9"/>
+          <text class="svg-t1" x="56" y="49">Invoice.pdf</text>
+          <text class="svg-t2" x="198" y="49">in twenty formats</text>
+          <rect class="svg-card" x="38" y="80" width="284" height="44" rx="9"/>
+          <text class="svg-t1" x="56" y="101">Inbox</text>
+          <text class="svg-t2" x="198" y="101">47 unsorted</text>
+          <rect class="svg-card" x="38" y="132" width="284" height="44" rx="9"/>
+          <text class="svg-t1" x="56" y="153">Quote #1042</text>
+          <text class="svg-t2" x="198" y="153">typed by hand</text>
 
-          <!-- outputs: the same jobs, done -->
-          <rect class="svg-card" x="436" y="36" width="152" height="56" rx="10"/>
-          <text class="svg-t1" x="454" y="59">Xero</text>
-          <text class="svg-t2" x="454" y="77">auto-reconciled</text>
-          <circle class="tick-c" cx="564" cy="64" r="9"/>
-          <path class="tick-p" d="M559.8 64.4l2.7 2.7 5.7-6"/>
+          <circle class="ring" cx="180" cy="300" r="54"/>
+          <rect class="node-box" x="132" y="258" width="96" height="84" rx="20"/>
+          <text class="node-s" x="180" y="312" text-anchor="middle">AI</text>
 
-          <rect class="svg-card" x="436" y="192" width="152" height="56" rx="10"/>
-          <text class="svg-t1" x="454" y="215">Inbox</text>
-          <text class="svg-t2" x="454" y="233">triaged &amp; sorted</text>
-          <circle class="tick-c" cx="564" cy="220" r="9"/>
-          <path class="tick-p" d="M559.8 220.4l2.7 2.7 5.7-6"/>
-
-          <rect class="svg-card" x="436" y="348" width="152" height="56" rx="10"/>
-          <text class="svg-t1" x="454" y="371">Quotes</text>
-          <text class="svg-t2" x="454" y="389">drafted &amp; sent</text>
-          <circle class="tick-c" cx="564" cy="376" r="9"/>
-          <path class="tick-p" d="M559.8 376.4l2.7 2.7 5.7-6"/>
+          <rect class="group-frame" x="20" y="416" width="320" height="170" rx="14"/>
+          <rect class="svg-card" x="38" y="430" width="284" height="44" rx="9"/>
+          <text class="svg-t1" x="56" y="451">Xero</text>
+          <text class="svg-t2" x="198" y="451">auto-reconciled</text>
+          <circle class="tick-c" cx="302" cy="452" r="8"/>
+          <path class="tick-p" d="M298.3 452.4l2.4 2.4 5-5.3"/>
+          <rect class="svg-card" x="38" y="482" width="284" height="44" rx="9"/>
+          <text class="svg-t1" x="56" y="503">Inbox</text>
+          <text class="svg-t2" x="198" y="503">triaged &amp; sorted</text>
+          <circle class="tick-c" cx="302" cy="504" r="8"/>
+          <path class="tick-p" d="M298.3 504.4l2.4 2.4 5-5.3"/>
+          <rect class="svg-card" x="38" y="534" width="284" height="44" rx="9"/>
+          <text class="svg-t1" x="56" y="555">Quotes</text>
+          <text class="svg-t2" x="198" y="555">drafted &amp; sent</text>
+          <circle class="tick-c" cx="302" cy="556" r="8"/>
+          <path class="tick-p" d="M298.3 556.4l2.4 2.4 5-5.3"/>
         </svg>
       </figure>
     </div>
@@ -151,7 +203,7 @@
         <p class="eyebrow">The process</p>
         <h2 id="how-t">Four steps. No surprises.</h2>
       </div>
-      <ol class="steps">
+      <ol class="steps" data-stagger>
         <li class="step reveal">
           <span class="num" aria-hidden="true">01</span>
           <h3>Talk</h3>
@@ -162,13 +214,13 @@
           <span class="num" aria-hidden="true">02</span>
           <h3>Assess</h3>
           <span class="tag">$1,500–2,500 fixed</span>
-          <p>The <b>AI Opportunity Assessment</b>: a written roadmap of the jobs worth automating, what each costs you now, what fixing it is worth, and a fixed quote. Yours to keep — <b>fully credited</b> against any build within 90 days.</p>
+          <p>The <b>AI Opportunity Assessment</b>: a written roadmap of the jobs worth automating, what each costs you now, what fixing it is worth, and a fixed quote. Yours to keep, <b>fully credited</b> against any build within 90 days.</p>
         </li>
         <li class="step reveal">
           <span class="num" aria-hidden="true">03</span>
           <h3>Deliver</h3>
           <span class="tag">Train, build, or both</span>
-          <p>The assessment prescribes the right treatment — sometimes your team just needs the tools and the training; sometimes a job deserves a tool of its own. Details below.</p>
+          <p>The assessment prescribes the right treatment: sometimes your team just needs the tools and the training; sometimes a job deserves a tool of its own. Details below.</p>
         </li>
         <li class="step reveal">
           <span class="num" aria-hidden="true">04</span>
@@ -186,32 +238,32 @@
         <p class="eyebrow">Services</p>
         <h2 id="services-t">Two ways we deliver.</h2>
       </div>
-      <div class="cards">
+      <div class="cards" data-stagger>
         <article class="card reveal">
           <p class="kicker">Enable</p>
           <h3>AI in your people's hands</h3>
           <p class="price"><span class="amt">$2,500 – $6,000</span> <span>fixed · delivered in days</span></p>
-          <p>Your team set up to use AI properly on their everyday work — the same tools we run our own firm on.</p>
+          <p>Your team set up to use AI properly on their everyday work, the same tools we run our own firm on.</p>
           <ul>
             <li><b>Setup</b> of Claude for your team, configured for your business</li>
-            <li><b>Safety rules</b> — what can go into AI, what never does</li>
+            <li><b>Safety rules</b>: what can go into AI, what never does</li>
             <li><b>Hands-on training</b> on your actual documents and tasks, not demos</li>
-            <li><b>Use-case scan</b> — where AI will pay off first for you</li>
+            <li><b>Use-case scan</b>: where AI will pay off first for you</li>
           </ul>
-          <p class="fit"><b>Right when:</b> the work is varied and judgment stays with a person — research, drafting, summarising, one-off analysis.</p>
+          <p class="fit"><b>Right when:</b> the work is varied and judgment stays with a person, like research, drafting, summarising, or one-off analysis.</p>
         </article>
         <article class="card card--featured reveal">
           <p class="kicker">Build</p>
           <h3>AI inside your processes</h3>
           <p class="price"><span class="amt">$7,500 – $15,000</span> <span>fixed · delivered in 2–3 weeks</span></p>
-          <p>One painful recurring job — turned into a tool that runs itself, built to be depended on.</p>
+          <p>One painful recurring job, turned into a tool that runs itself, built to be depended on. Sometimes that's automation on the tools you already own; sometimes it's custom software built into how your business works, an Office add-in, an Excel tool, or an integration between your systems.</p>
           <ul>
             <li><b>Tested</b> against your real-world scenarios before it ships</li>
-            <li><b>Documented</b> — user guides and an operations manual</li>
+            <li><b>Documented</b>: user guides and an operations manual</li>
             <li><b>Your team trained</b> to run it without us</li>
-            <li><b>Warranted &amp; supported</b> — it keeps working after we walk out the door</li>
+            <li><b>Warranted &amp; supported</b>: it keeps working after we walk out the door</li>
           </ul>
-          <p class="fit"><b>Right when:</b> the job is recurring and the business depends on it — it should run on schedule, for everyone, connected to your systems.</p>
+          <p class="fit"><b>Right when:</b> the job is recurring and the business depends on it, so it should run on schedule, for everyone, connected to your systems.</p>
         </article>
       </div>
     </div>
@@ -247,34 +299,140 @@
         <p class="eyebrow">Straight answers</p>
         <h2 id="straight-t">The fine print, up front.</h2>
       </div>
-      <div class="straight">
+      <div class="straight" data-stagger>
         <div class="panel reveal">
           <h3>What we don't sell</h3>
-          <p>Autonomous "AI employees", hype pilots, or things you could already do with tools you pay for. If the honest answer is <b>"you don't need us for that"</b> — that's what the assessment will say.</p>
+          <p>Autonomous "AI employees", hype pilots, or things you could already do with tools you pay for. If the honest answer is <b>"you don't need us for that"</b>, that's what the assessment will say.</p>
         </div>
         <div class="panel reveal">
           <h3>Why fixed prices</h3>
-          <p>AI writes the first draft of our work — that's the cheap part now. What you're paying for is everything that makes it <b>safe to run a business on</b>: the testing, the training, the warranty.</p>
+          <p>AI writes the first draft of our work. That's the cheap part now. What you're paying for is everything that makes it <b>safe to run a business on</b>: the testing, the training, the warranty.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIAL — HOLD. Activate only when the real client quote lands in
-       services.md (Website-only content): fill the bracketed fields, move this
-       section out of the comment, delete the wrapper. Design is ready (.quote).
-  <section class="section alt" aria-labelledby="quote-t">
+  <section id="calculator" class="calc on-dark section" aria-labelledby="calc-t">
     <div class="container">
       <div class="sect-head">
-        <p class="eyebrow">From our clients</p>
+        <p class="eyebrow">Run your numbers</p>
+        <h2 id="calc-t">Is the job even worth automating?</h2>
+        <p>Pick one recurring job and drag the sliders. If the maths says don't hire us, <b>it will say so.</b></p>
       </div>
-      <figure class="quote reveal">
-        <blockquote>[Quote — incoming from first client]</blockquote>
-        <figcaption><b>[Name]</b> · [Role, Company]</figcaption>
-      </figure>
+      <div class="calc-grid">
+        <div class="calc-inputs">
+          <div class="field">
+            <label for="calc-hours">Hours your team spends on it each week <output id="out-hours" for="calc-hours">6 hrs</output></label>
+            <input type="range" id="calc-hours" min="1" max="40" step="1" value="6">
+            <p class="hint">Across everyone who touches it.</p>
+          </div>
+          <div class="field">
+            <label for="calc-rate">What an hour of that time costs <output id="out-rate" for="calc-rate">$45</output></label>
+            <input type="range" id="calc-rate" min="25" max="150" step="5" value="45">
+            <p class="hint">Wages plus overhead. Be honest.</p>
+          </div>
+          <p class="calc-note">Deliberately rough and conservative: assumes automation takes ~80% of the manual time over 48 working weeks, and includes support at $200/mo. The real answer comes from the free 60–90&nbsp;min talk.</p>
+        </div>
+        <div class="calc-out" aria-live="polite">
+          <noscript><p style="font-weight:300">The calculator needs JavaScript. Or just email us the numbers and we'll do the maths in the free talk.</p></noscript>
+          <div class="stat"><span class="k">What this job costs you now</span><span class="v"><span id="res-annual">—</span><small>/yr</small></span></div>
+          <div class="stat"><span class="k">Likely saving, after support costs</span><span class="v"><span id="res-saving">—</span><small>/yr</small></span></div>
+          <div class="verdict" id="res-verdict">
+            <span class="badge" id="res-badge">—</span>
+            <h3 id="res-title">Drag the sliders</h3>
+            <p id="res-sub">We'll tell you whether this one's worth a build, a training day, or nothing at all.</p>
+            <p class="go"><a class="btn btn-light" href="mailto:josiah@saintstech.co.nz?subject=Free%20talk" id="res-cta">Book the free talk <span class="arr" aria-hidden="true">&rarr;</span></a></p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
-  -->
+
+  <section class="section alt" aria-labelledby="faq-t">
+    <div class="container">
+      <div class="sect-head">
+        <p class="eyebrow">Before you ask</p>
+        <h2 id="faq-t">The questions owners actually ask.</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>What happens to our data?</summary>
+          <p class="a">Before anything runs, we set <b>safety rules</b> with you: what can go into AI, and what never does. Those rules are written down, and your team is trained on them.</p>
+        </details>
+        <details>
+          <summary>What if it breaks after you leave?</summary>
+          <p class="a">Every build ships with a <b>defect warranty</b> and a support plan from $200/month: monitoring, fixes, and updates when your business changes.</p>
+        </details>
+        <details>
+          <summary>Will we be locked into you?</summary>
+          <p class="a">No. Every build is <b>documented</b>, with user guides and an operations manual, and your team is trained to run it without us.</p>
+        </details>
+        <details>
+          <summary>Do you work outside Auckland?</summary>
+          <!-- PRODUCTION: Josiah to confirm travel/remote wording -->
+          <p class="a">STAS is Auckland-based and works with businesses across New Zealand. The first talk is free either way.</p>
+        </details>
+        <details>
+          <summary>Is AI actually ready for this?</summary>
+          <p class="a">For some jobs, yes; for others, no. Telling you which is which is the entire point of the assessment. If the honest answer is <b>"you don't need us"</b>, that's what it will say.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="dogfood" aria-label="We run on what we sell">
+    <div class="container dogfood-inner">
+      <p class="eyebrow">We run on what we sell</p>
+      <p>Our own firm runs on the same stack we set up for clients, and <b>this website was built the way we build</b>: the copy lives in one content master, AI does the heavy lifting, and a human signs off before anything ships. When the first client results land, they'll be right here, <b>with names and numbers, or not at all.</b></p>
+    </div>
+  </section>
+
+  <section id="about" class="section" aria-labelledby="about-t">
+    <div class="container">
+      <div class="sect-head">
+        <p class="eyebrow">About</p>
+        <h2 id="about-t">The person who does the work.</h2>
+        <p>STAS is deliberately a one-person firm. The engineer who scopes your job is the one who builds it, tests it, trains your team, and answers the phone afterwards.</p>
+      </div>
+      <div class="about-grid">
+        <figure class="portrait reveal">
+          <img src="assets/img/josiah.jpg" alt="Josiah Santos, founder of Saints Technologies &amp; Services" width="631" height="642">
+        </figure>
+        <div class="bio reveal">
+          <p>I'm Josiah Santos, STAS's founder, an engineer who got tired of watching good businesses lose hours to jobs a machine should be doing.</p>
+          <p>I run STAS from Auckland, and the work is hands-on: I come to you, learn how your business actually runs, and put AI to work on the parts that don't need a human, and to do it properly, with testing, documentation, and a warranty behind it.</p>
+          <p><b>No sales team, no juniors, no handoffs.</b> If we work together, <b class="hl">you deal with me.</b></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" aria-labelledby="how-i-work-t">
+    <div class="container">
+      <div class="sect-head">
+        <p class="eyebrow">Working together</p>
+        <h2 id="how-i-work-t">How I work.</h2>
+      </div>
+      <ul class="how" data-stagger>
+        <li class="reveal">
+          <h3>An honest first call</h3>
+          <p>If there's nothing worth automating, I'll say so and leave you to it.</p>
+        </li>
+        <li class="reveal">
+          <h3>Fixed prices, in writing</h3>
+          <p>Agreed before work starts; no hourly meters.</p>
+        </li>
+        <li class="reveal">
+          <h3>Built to be depended on</h3>
+          <p>Tested against your real scenarios, documented, warranted.</p>
+        </li>
+        <li class="reveal">
+          <h3>Still here afterwards</h3>
+          <p>Support from $200/mo; your tools keep up when your business changes.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
 
   <section id="contact" class="contact on-dark">
     <div class="container section">
@@ -312,5 +470,12 @@
   </div>
 </footer>
 
+<div class="mobile-cta" id="mobile-cta">
+  <a class="btn btn-ghost" href="tel:+64211417057">Call</a>
+  <!-- PRODUCTION: point at a Microsoft Bookings page -->
+  <a class="btn btn-light" href="mailto:josiah@saintstech.co.nz?subject=Free%20talk">Book a free talk</a>
+</div>
+
+<script src="js/main.js"></script>
 </body>
 </html>
