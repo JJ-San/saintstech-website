@@ -17,7 +17,7 @@ OUT = ROOT / "assets" / "fonts"
 # (en/em dashes, curly quotes, bullet, ellipsis) + euro + minus.
 UNICODES = "U+0020-007E,U+00A0-00FF,U+2010-2027,U+2030-203A,U+20AC,U+2212"
 
-FACES = ["Poppins-Light", "Poppins-Regular", "Poppins-Medium", "Poppins-Bold"]
+FACES = ["Poppins-Light", "Poppins-Regular", "Poppins-Medium", "Poppins-Bold", "Poppins-ExtraBold"]
 
 OUT.mkdir(parents=True, exist_ok=True)
 for face in FACES:

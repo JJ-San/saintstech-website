@@ -9,6 +9,7 @@
 @font-face{font-family:'Poppins';src:url('../assets/fonts/Poppins-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
 @font-face{font-family:'Poppins';src:url('../assets/fonts/Poppins-Medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap;}
 @font-face{font-family:'Poppins';src:url('../assets/fonts/Poppins-Bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap;}
+@font-face{font-family:'Poppins';src:url('../assets/fonts/Poppins-ExtraBold.woff2') format('woff2');font-weight:800;font-style:normal;font-display:swap;}
 
 /* ---------- tokens -------------------------------------------------------- */
 :root{
@@ -115,8 +116,8 @@ h3{font-size:clamp(1.1rem,1rem + .45vw,1.35rem);}
 .nav-inner{display:flex;align-items:center;gap:2rem;height:4.25rem;}
 .brand{display:inline-flex;align-items:center;gap:.65rem;text-decoration:none;flex:0 0 auto;}
 .brand-mark{display:block;height:2.5rem;width:auto;transform:translateY(var(--logo-nudge,0));}
-.brand-lockup{font-size:1.15rem;font-weight:400;letter-spacing:.05em;text-transform:uppercase;color:var(--body);white-space:nowrap;}
-.brand-lockup b{font-weight:700;color:var(--navy);}
+.brand-lockup{font-size:1.15rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:var(--body);white-space:nowrap;}
+.brand-lockup b{font-weight:800;color:var(--navy);}
 .nav-links{display:flex;align-items:center;gap:1.6rem;margin-left:auto;}
 .nav-links a:not(.btn){font-size:.92rem;font-weight:500;color:var(--navy);text-decoration:none;padding-block:.35rem;border-bottom:2px solid transparent;transition:color .2s var(--ease);}
 .nav-links a:not(.btn):hover{color:var(--teal-deep);}
