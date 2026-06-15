@@ -1,6 +1,8 @@
 # brand/website — saintstech.co.nz
 
-Static two-page site (Home + About) for Saints Technologies & Services. This is **render target #3** of the content master `../services/services.md` — same one-way rule as the one-pager: master → render, never the reverse. Full sync flow: `../services/README.md`.
+Single-page site for Saints Technologies & Services. This is **render target #3** of the content master `../services/services.md` — same one-way rule as the one-pager: master → render, never the reverse. Full sync flow: `../services/README.md`.
+
+The redesign collapsed the old two-page layout (Home + About) into one document at `/`. `about/index.html` is retained as a redirect (`/about/` → `/#about`) so inbound links and indexed URLs keep working.
 
 > **Resuming work?** Read `.claude/sessions/handoff.md` for current status, open items, and next steps.
 
@@ -8,15 +10,17 @@ Static two-page site (Home + About) for Saints Technologies & Services. This is 
 
 - **NEVER edit page copy in the HTML directly.** Edit `../services/services.md` (including its `Website-only content` section), then sync ("sync the services sheet"). Design/CSS polish directly in the HTML/CSS is fine.
 - Brand tokens: Poppins (Light 300 / Regular 400 / Medium 500 / Bold 700) · navy `#2F3B49` · teal `#3E9DAE` · **accent-deep `#2E7785`** (web-only token: brand teal is 3.0:1 on white, so small text/CTAs use accent-deep at ≥4.5:1; bright teal is for borders, bullets, large accents, and accents on navy) · accent-soft `#EAF4F6`.
-- **Zero JavaScript.** Scroll reveals are CSS `animation-timeline` behind `@supports`, with a `prefers-reduced-motion` opt-out. Keep it that way unless a recorded decision says otherwise.
+- **JavaScript is a progressive enhancement, not a requirement.** `js/main.js` handles scroll reveals (IntersectionObserver), the hero tool rotator, the ROI calculator, and the sticky mobile CTA. The page must still read sensibly without JS (calculator has a `<noscript>` fallback; rotator falls back to a comma-separated list under `prefers-reduced-motion`). Hero load-in is plain CSS keyframes (`.lift` + `liftIn`) so it works on every browser including Safari/iOS.
 - The testimonial section in `index.html` ships **commented out**. Activate only with a real client quote (name + specific result). Never placeholder praise.
-- The nav/footer logo and the About portrait are **live**. Never hand-edit the generated `assets/img/stas-logo.png` / `josiah.jpg` — regenerate them with `scripts\prep-images.py` (see Rituals).
+- The nav brand mark and the About portrait are **live**. Never hand-edit `assets/img/stas-logo.png` / `josiah.jpg` — regenerate them with `scripts\prep-images.py` (see Rituals).
+- **Don't add third-party brand logos** (Xero, MYOB, Microsoft 365, etc.) to the site without a policy check. 2026-06-15 research: Xero restricts logos to certified partners; MYOB explicitly forbids non-Developer-Partner use; Microsoft requires an express licence for logos but explicitly permits text wordmarks. Text mentions + the footer trademark notice are the cleared path. Revisit only if STAS joins the relevant partner program.
 
 ## Rituals
 
 - **Fonts**: brand-owned TTFs live in `../services/assets/fonts/`. Re-subset → WOFF2: `.venv\Scripts\python.exe scripts\subset-fonts.py`
-- **Logo / photo**: canonical logo at `../logo/stas-logo.jpg`. Re-prep web assets: `.venv\Scripts\python.exe scripts\prep-images.py` → `assets/img/stas-logo.png` (white keyed to transparent) + `assets/img/josiah.jpg` (headshot). Nav logo vertical alignment knob: `--logo-nudge` in `css/styles.css`.
+- **Logo / photo**: canonical logo at `../logo/stas-logo.jpg`. Re-prep web assets: `.venv\Scripts\python.exe scripts\prep-images.py` → `assets/img/stas-logo.png` (white keyed to transparent) + `assets/img/josiah.jpg` (headshot). Nav logo vertical alignment knob: `--logo-nudge` on `.brand-mark` in `css/styles.css`.
 - **og-image / touch icon**: edit `assets/og/og.html` (or `assets/og/icon.html`), then `pwsh scripts\render-og.ps1` (headless Edge screenshots).
+- **Hero tool rotator**: text items inside `<span class="rotator" id="ww-rotator">` in `index.html`, cross-faded by `js/main.js`. The JS auto-sizes the slot to the widest item's text (`textContent.length`). To change the rotated tools, edit the `<span class="rot-item">` children — the sizer rebuilds itself. Reduced-motion users see a comma-separated list (CSS in `prefers-reduced-motion` block).
 - **Proof rule (from cvkit)**: after any visual change, screenshot at 390 / 768 / 1440 and *look at it* — overlap and overflow don't show up in code.
 
 ## Deploy
@@ -29,4 +33,4 @@ Static two-page site (Home + About) for Saints Technologies & Services. This is 
 
 ## Validation
 
-Manual proof rule above · W3C-valid HTML · Lighthouse ≥95 target · contrast: all small text ≥4.5:1.
+Manual proof rule above · W3C-valid HTML · Lighthouse ≥95 target · contrast: all small text ≥4.5:1 · with-JS and no-JS both render readable copy.

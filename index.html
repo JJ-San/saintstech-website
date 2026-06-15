@@ -2,10 +2,10 @@
 <!--
   saintstech.co.nz — single-page site (v3). Render of ../services/services.md.
   NOTE 2026-06-15: deployed from the website-v2 rebuild. Production assets wired
-  (self-hosted Poppins, real founder photo). The master hero is back-ported; a
-  fuller master reconciliation (FAQ, calculator, restructured sections) is still
-  owed — see CLAUDE.md. Optional later: nav logo image (assets/img/stas-logo.png);
-  CTAs → Microsoft Bookings.
+  (self-hosted Poppins, real founder photo, nav brand mark). Tool rotator stays
+  text-only — see CLAUDE.md for the brand-policy rationale. A fuller master
+  reconciliation (FAQ, calculator, restructured sections) is still owed.
+  Optional later: CTAs → Microsoft Bookings.
 -->
 <html lang="en-NZ">
 <head>
@@ -69,8 +69,8 @@
 
 <header class="nav">
   <div class="container nav-inner">
-    <a class="brand" href="#main">
-      <span class="brand-lockup"><b>Saints</b><span class="bl-rest">&nbsp;Technologies &amp; Services</span></span>
+    <a class="brand" href="#main" aria-label="Saints Technologies &amp; Services — home">
+      <img class="brand-mark" src="assets/img/stas-logo.png" alt="Saints Technologies &amp; Services" width="360" height="157">
     </a>
     <nav class="nav-links" aria-label="Site">
       <a class="m-hide" href="#how">How it works</a>
@@ -91,7 +91,7 @@
         <p class="eyebrow lift d1">AI &amp; automation for NZ small business · Auckland</p>
         <h1 class="display lift d2">Find where AI actually pays off in your business&nbsp;— <b>and where it doesn’t.</b></h1>
         <p class="sub lead lift d3">We find the work in your business worth automating, even if you’ve no idea where to start.</p>
-        <p class="hero-support lift d4">We build on the tools you already run&nbsp;— like <span class="rotator" id="ww-rotator" aria-label="Xero, MYOB, Microsoft 365"><span class="rot-item">Xero</span><span class="rot-item">MYOB</span><span class="rot-item">Microsoft&nbsp;365</span></span>&nbsp;— and the spreadsheets you live in.</p>
+        <p class="hero-support lift d4">We build on the tools you already run, such as: <span class="rotator" id="ww-rotator" aria-label="Xero, MYOB, Microsoft 365"><span class="rot-item">Xero</span><span class="rot-item">MYOB</span><span class="rot-item">Microsoft&nbsp;365</span></span>&nbsp;— and the spreadsheets you live in.</p>
         <div class="cta-row lift d5">
           <!-- PRODUCTION: point at a Microsoft Bookings page -->
           <a class="btn btn-light" href="mailto:josiah@saintstech.co.nz?subject=Free%20talk">Book a free talk <span class="arr" aria-hidden="true">&rarr;</span></a>
@@ -466,6 +466,7 @@
       <p>Auckland · New Zealand</p>
       <p>© 2026 Saints Technologies &amp; Services</p>
       <!-- NZBN slot: add "· NZBN <number>" (linked to nzbn.govt.nz) if Josiah wants it shown -->
+      <p class="footer-legal">Microsoft 365, Xero and MYOB are trademarks of their respective owners. STAS is independent and not affiliated with these companies.</p>
     </div>
   </div>
 </footer>

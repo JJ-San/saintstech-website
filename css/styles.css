@@ -1,7 +1,8 @@
 /* ==========================================================================
    saintstech.co.nz — design system
-   Redesigned single-page site. Self-contained for preview (Google Fonts CDN).
-   See README.md for production swaps (self-hosted fonts, logo, photo, logos).
+   Single-page redesign (v3). Self-hosted Poppins, brand mark in nav, real
+   founder photo, text-only tool rotator. Source of truth for copy is
+   ../services/services.md (the master) — design polish lives here.
    ========================================================================== */
 
 @font-face{font-family:'Poppins';src:url('../assets/fonts/Poppins-Light.woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap;}
@@ -113,9 +114,7 @@ h3{font-size:clamp(1.1rem,1rem + .45vw,1.35rem);}
 .nav::before{content:'';display:block;height:3px;background:linear-gradient(90deg,var(--teal),var(--teal-bright) 45%,var(--teal));}
 .nav-inner{display:flex;align-items:center;gap:2rem;height:4.25rem;}
 .brand{display:inline-flex;align-items:center;text-decoration:none;flex:0 0 auto;}
-/* PRODUCTION: swap the lockup for the stas-logo.png <img> if preferred */
-.brand-lockup{font-size:1rem;font-weight:300;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);white-space:nowrap;}
-.brand-lockup b{font-weight:700;color:var(--navy);}
+.brand-mark{display:block;height:2.5rem;width:auto;transform:translateY(var(--logo-nudge,0));}
 .nav-links{display:flex;align-items:center;gap:1.6rem;margin-left:auto;}
 .nav-links a{font-size:.92rem;font-weight:500;color:var(--navy);text-decoration:none;padding-block:.35rem;border-bottom:2px solid transparent;transition:color .2s var(--ease);}
 .nav-links a:hover{color:var(--teal-deep);}
@@ -405,6 +404,7 @@ input[type=range]::-moz-range-track{background:transparent;}
 .footer-meta a{color:#DDE3E9;text-decoration:none;}
 .footer-meta a:hover{color:var(--teal-bright);}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-block:1.3rem;font-size:.8125rem;color:#8C97A3;display:flex;justify-content:space-between;gap:.75rem 2rem;flex-wrap:wrap;}
+.footer-legal{flex-basis:100%;font-size:.75rem;color:#6B7480;line-height:1.55;margin-top:.35rem;}
 
 /* ---------- sticky mobile action bar -------------------------------------------------------------------------------------- */
 .mobile-cta{
@@ -467,7 +467,6 @@ input[type=range]::-moz-range-track{background:transparent;}
   .steps{grid-template-columns:1fr;}
 }
 @media (max-width: 430px){
-  .brand-lockup{font-size:.9rem;}
-  .bl-rest{display:none;}
+  .brand-mark{height:2rem;}
   .btn{padding:.85rem 1.2rem;}
 }
