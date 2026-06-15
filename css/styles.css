@@ -8,6 +8,7 @@
 @font-face{font-family:'Poppins';src:url('../assets/fonts/Poppins-Light.woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap;}
 @font-face{font-family:'Poppins';src:url('../assets/fonts/Poppins-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
 @font-face{font-family:'Poppins';src:url('../assets/fonts/Poppins-Medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap;}
+@font-face{font-family:'Poppins';src:url('../assets/fonts/Poppins-SemiBold.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap;}
 @font-face{font-family:'Poppins';src:url('../assets/fonts/Poppins-Bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap;}
 @font-face{font-family:'Poppins';src:url('../assets/fonts/Poppins-ExtraBold.woff2') format('woff2');font-weight:800;font-style:normal;font-display:swap;}
 
@@ -119,7 +120,7 @@ h3{font-size:clamp(1.1rem,1rem + .45vw,1.35rem);}
 .brand-lockup{font-size:1.15rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:var(--body);white-space:nowrap;}
 .brand-lockup b{font-weight:800;color:var(--navy);}
 .nav-links{display:flex;align-items:center;gap:1.6rem;margin-left:auto;}
-.nav-links a:not(.btn){font-size:.92rem;font-weight:500;color:var(--navy);text-decoration:none;padding-block:.35rem;border-bottom:2px solid transparent;transition:color .2s var(--ease);}
+.nav-links a:not(.btn){font-size:.92rem;font-weight:600;color:var(--navy);text-decoration:none;padding-block:.35rem;border-bottom:2px solid transparent;transition:color .2s var(--ease);}
 .nav-links a:not(.btn):hover{color:var(--teal-deep);}
 .nav .btn{padding:.7rem 1.15rem;font-size:.875rem;}
 
