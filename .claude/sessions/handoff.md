@@ -11,9 +11,28 @@ Executed the founder-decided work order to cut two sections from the live single
 - **Seam fix (the proof-rule watch-out):** removing the light fine-print section put the navy `.band` directly on the navy `#calculator` (two dark blocks). Added a 1px hairline `border-top:1px solid rgba(255,255,255,.10)` on `.calc` so the band→calculator boundary reads clearly. Checked at **390 / 768 / 1440** — the band reads as its own strip and the calculator clearly re-opens below it; not a merged slab.
 - **Cleanup:** dropped now-dead `.straight` / `.panel` / `.dogfood` CSS; bumped cache-buster to `styles.css?v=2026-06-16a`.
 
-## ⏸ Strategy context — do NOT act on this yet
-- The live strategy thread is the **pricing display** in `#services` (the $ ranges + "delivered in days" / "delivered in 2–3 weeks"). **Undecided** — leave prices/timelines exactly as they are until Josiah calls it. Competitor revisit doc: `C:\Users\josia\Documents\STAS-NZ-competitors.md`.
-- FYI only: the "Why fixed prices" panel removed above (the fine-print cut) was the on-page justification for those prices. Its removal is a separate, already-made call and does **not** pre-decide the pricing thread.
+## ▶ Pricing work order — approved 2026-06-16 (sync the services sheet)
+
+Decided in a root strategy session, grounded in the consulting-pricing wiki (Enns *Pricing Creativity*, Weiss *Value-Based Fees*). This is a **master edit → render both** ("sync the services sheet"): change `../services/services.md`, then re-render the website (`#services` cards) **and** the one-pager PDF. Do **not** edit the website wording in isolation.
+
+**Changes:**
+1. **Drop the word "fixed" from the on-page ranges.** Doctrine: publish *typical ranges*, not fixed numbers — the **fixed quote comes from the paid Assessment** (Step 2 already says so; make it explicit near the cards if needed). Reframe both tiers as "typically $X–$Y, depending on scope."
+2. **BUILD ceiling $15k → $25k.** New BUILD range **$7,500 – $25,000** (resolves the parked "BUILD ceiling" question). The top is the *high anchor*, not a "max scope."
+3. **Timeframes:**
+   - ENABLE: "delivered in days" → **"days to a couple of weeks"** ⚠ *CONFIRM exact wording with Josiah — his phrasing ("in days because it could be a few weeks") was ambiguous; keep it clearly shorter than BUILD's range.*
+   - BUILD: "2–3 weeks" → **"2–8 weeks"** (was over-specified, and tighter than the master's own "a few weeks").
+4. ENABLE price **unchanged** ($2,500–$6,000).
+
+**Exact master lines to change in `../services/services.md`:**
+- ENABLE: `**$2,500 – $6,000 fixed · delivered in days**` → `**$2,500 – $6,000 · delivered in days to a couple of weeks**`
+- BUILD: `**Typically $7,500 – $15,000 fixed · delivered in a few weeks**` → `**Typically $7,500 – $25,000 · delivered in 2–8 weeks**`
+- Mirror in the website `#services` card `.price` lines and the one-pager `.price` lines.
+
+Then: deploy the website (commit + push, hard-refresh, screenshot 390/768/1440) and re-render the one-pager PDF (headless Edge — see `../services/README.md`).
+
+**Parked (separate, bigger thread — NOT this work order):** make the per-job quote a **3-option good-better-best proposal** out of the Assessment (Enns Rule #2 / Weiss "choice of yeses"). That's a sales-motion change, tracked at root — don't build it into the website.
+
+Competitor revisit doc (context): `C:\Users\josia\Documents\STAS-NZ-competitors.md`.
 
 ## Status (current live site)
 - LIVE over HTTPS — https://saintstech.co.nz. Repo **github.com/JJ-San/saintstech-website** (`main`, root). Working tree clean.
