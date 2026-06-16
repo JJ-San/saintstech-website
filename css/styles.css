@@ -249,7 +249,9 @@ h3{font-size:clamp(1.1rem,1rem + .45vw,1.35rem);}
 .card--featured .fit b{color:#fff;}
 
 /* ---------- calculator (the signature) ------------------------------------------------------------ */
-.calc{position:relative;background:var(--navy-900);color:var(--soft-white);overflow:hidden;}
+/* border-top divides the navy "ships with" band from this darker navy section
+   (the light fine-print section that used to sit between them was removed 2026-06-16) */
+.calc{position:relative;background:var(--navy-900);color:var(--soft-white);overflow:hidden;border-top:1px solid rgba(255,255,255,.10);}
 .calc::before{
   content:'';position:absolute;inset:0;pointer-events:none;
   background:radial-gradient(640px 420px at 12% 0%,rgba(62,157,174,.22),transparent 70%);
@@ -314,14 +316,6 @@ input[type=range]::-moz-range-track{background:transparent;}
 .band li::before{content:'';position:absolute;left:0;top:.55em;width:6px;height:6px;border-radius:50%;background:var(--teal-bright);}
 @keyframes slide{to{transform:translateX(calc(-50% - 1.5rem));}}
 
-/* ---------- straight answers ---------------------------------------------------------------------------- */
-.straight{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;}
-.panel{position:relative;overflow:hidden;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:2.1rem 2.2rem;}
-.panel::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:var(--teal);}
-.panel h3{font-size:1.15rem;margin-bottom:.7rem;}
-.panel p{font-weight:300;}
-.panel p b{font-weight:500;color:var(--ink);}
-
 /* ---------- FAQ -------------------------------------------------------------------------------------------- */
 .faq{max-width:46rem;}
 .faq details{border-bottom:1px solid var(--line);}
@@ -344,13 +338,6 @@ input[type=range]::-moz-range-track{background:transparent;}
 .faq summary:hover{color:var(--teal-deep);}
 .faq .a{padding:0 0 1.4rem;font-weight:300;max-width:40rem;}
 .faq .a b{font-weight:500;color:var(--ink);}
-
-/* ---------- proof strip -------------------------------------------------------------------------------------- */
-.dogfood{background:var(--teal-soft);}
-.dogfood-inner{padding-block:clamp(2.5rem,6vw,3.5rem);max-width:52rem;}
-.dogfood .eyebrow{color:var(--teal-down);}
-.dogfood p{font-weight:300;color:#28525B;font-size:clamp(1rem,.95rem + .3vw,1.125rem);}
-.dogfood p b{font-weight:700;color:var(--navy);}
 
 /* ---------- about ------------------------------------------------------------------------------------------------ */
 .about-grid{display:grid;grid-template-columns:minmax(240px,340px) minmax(0,1fr);gap:clamp(2.5rem,6vw,4.5rem);align-items:start;}
@@ -450,7 +437,6 @@ input[type=range]::-moz-range-track{background:transparent;}
 @media (max-width: 900px){
   .steps{grid-template-columns:repeat(2,1fr);}
   .cards{grid-template-columns:1fr;}
-  .straight{grid-template-columns:1fr;}
   .how{grid-template-columns:1fr;}
   .about-grid{grid-template-columns:1fr;}
   .portrait{max-width:320px;}
