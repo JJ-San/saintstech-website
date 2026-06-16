@@ -2,9 +2,13 @@
 
 _Updated 2026-06-16. Durable "how to work" rules live in this folder's `CLAUDE.md`; this file = current state + what's next._
 
-## ▶ NEXT: Typography (deferred, to discuss)
+## ✅ Done 2026-06-16 — typography: Newsreader serif headlines + larger scale (commit `1c5e65b`, deployed)
 
-The 2026-06-16 design pass deliberately left **typography untouched**. Open thread: Poppins-everywhere reads "competent template"; the biggest distinctiveness lever is a **distinctive display face for H1/H2 only**, Poppins kept for body. A refined serif (e.g. Fraunces) would signal *trusted advisor* vs *another AI vendor*. **Brand decision** — Poppins is the documented brand font (`CLAUDE.md`), so changing headline type is a brand-level call + one extra self-hosted face. Discuss before implementing.
+Headline face decided. Mocked up Poppins / Fraunces / Newsreader / Bricolage side-by-side; Josiah liked Fraunces but found it hard to read (audience skews **older**), so chose **Newsreader** + a size bump.
+- **Headlines only** (`.display` H1 + all `h2`) → **Newsreader** (variable serif, designed for reading). Everything else stays Poppins (body, eyebrows, buttons, nav, `h3`/`h4`).
+- **Self-hosted** like Poppins: one WOFF2 (~35 KB), opsz pinned to display 72, wght 400–700. Source TTF `Newsreader[opsz,wght].ttf` lives in `../services/assets/fonts/` (google/fonts, OFL); subset via the existing `scripts\subset-fonts.py` (now also does Newsreader). Preloaded in `<head>`.
+- **Type scale up for readability:** body 16–17px → 17–19px; `.lead`, H1/H2, and main reading paragraphs (`.step p`, `.card li`, `.how p`, FAQ summary) all larger. Verified 390/768/1440, no overflow.
+- Brand-token line in `CLAUDE.md` updated. Headline weights (`.display` 430/640, `h2` 520) are tunable in `css/styles.css` if Josiah wants lighter/heavier.
 
 ## ✅ Done 2026-06-16 — design pass: contrast rhythm + cohesion + motion (commit `cdfe682`, deployed)
 
