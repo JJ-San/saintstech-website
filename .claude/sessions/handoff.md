@@ -16,8 +16,9 @@ Executed the founder-decided work order to cut two sections from the live single
 Executed the approved root pricing work order (Enns *Pricing Creativity* / Weiss *Value-Based Fees*). Master `../services/services.md` edited, then mirrored into **both** renders (website `#services` cards + one-pager → PDF re-rendered via headless Edge). Proofed at 390/768/1440 on both renders.
 
 - **Dropped "fixed"** from both card ranges — published ranges are now *indicative*; the fixed quote still comes from the paid Assessment (Step 2 + the `$1,500–2,500 fixed` Assessment tag left unchanged, which reinforces the doctrine).
-- **ENABLE:** `$2,500 – $6,000 · delivered in days to weeks, depending on scope` — timeframe wording confirmed by Josiah (his "depending on scope" carries the same indicative sense "Typically" carries on BUILD).
-- **BUILD:** `Typically $7,500 – $25,000 · delivered in 2–8 weeks` — ceiling 15k→25k as the high anchor (resolves the parked "BUILD ceiling" question); was "2–3 weeks".
+- **ENABLE:** `$2,500 to $6,000 · delivered in days to weeks, depending on scope` — timeframe wording confirmed by Josiah.
+- **BUILD:** `Typically $7,500 to $25,000 · delivered in 2–8 weeks, depending on scope` — ceiling 15k→25k as the high anchor (resolves the parked "BUILD ceiling" question); was "2–3 weeks".
+- **Range format:** both cards use the word **"to"** (`$X to $Y`), not an en-dash, and both carry **"depending on scope"** (Josiah, 2026-06-16). The site's other ranges keep en-dashes (`2–8 weeks`, `60–90 min`, the `$1,500–2,500 fixed` Assessment tag).
 - **JSON-LD `priceRange`** bumped NZ$15,000 → NZ$25,000 to match.
 - Render note: the **website** drops the literal "·" between price and timeframe (the narrow cards wrap, so the flex gap + size/weight/colour hierarchy separates them); the **master + one-pager** keep the "·" (renders inline on the wide print card). Content is identical; only the separator glyph differs per render — a layout call.
 
