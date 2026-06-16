@@ -2,6 +2,18 @@
 
 _Updated 2026-06-16. Durable "how to work" rules live in this folder's `CLAUDE.md`; this file = current state + what's next._
 
+## ▶ NEXT: Typography (deferred, to discuss)
+
+The 2026-06-16 design pass deliberately left **typography untouched**. Open thread: Poppins-everywhere reads "competent template"; the biggest distinctiveness lever is a **distinctive display face for H1/H2 only**, Poppins kept for body. A refined serif (e.g. Fraunces) would signal *trusted advisor* vs *another AI vendor*. **Brand decision** — Poppins is the documented brand font (`CLAUDE.md`), so changing headline type is a brand-level call + one extra self-hosted face. Discuss before implementing.
+
+## ✅ Done 2026-06-16 — design pass: contrast rhythm + cohesion + motion (commit `cdfe682`, deployed)
+
+Restored the section-contrast rhythm that flattened when the dogfood + fine-print sections were removed, plus cohesion/motion polish. **CSS/JS only — no copy or master changes.** Verified at 390/768/1440, no console errors. Cache-buster → `2026-06-16b`.
+- **Rhythm:** "ships with" band re-toned to a **light teal-soft strip** (kills the band→calculator dark-on-dark slab — now a clean light→dark beat — and restores a teal accent; the calc hairline band-aid is gone). **About → teal-soft** accent (breaks the FAQ→About→How-I-work light run); **FAQ → white**; **`--paper-2` deepened** (`#F6F9FB`→`#EDF1F4`) so white/grey actually reads as alternation. New cadence: dark · white · grey · teal-band · **DARK calc** · white · **teal About** · grey · **DARK contact**.
+- **Dark-section cohesion:** hero dot-grid + a subtle film-grain (`--grain` token) now also on the calculator and contact.
+- **Distinctive touches (all reduced-motion safe):** process steps gain a teal **connector that draws on reveal** (4-col desktop only; hidden ≤900px); About portrait floats **centered against the bio** (editorial asymmetry, desktop only); calculator **verdict badge pulses** on state change; nav **teal scroll-progress** fill (`--scroll`) + nav-link **teal underline-wipe**.
+- New CSS hooks: `.tint` (teal-soft section), `--grain`, `--scroll`, `.steps.is-drawn`, `.verdict.pulse`.
+
 ## ✅ Done 2026-06-16 — two sections removed (commit `d9a25f5`, pushed + deployed)
 
 Executed the founder-decided work order to cut two sections from the live single-page site. **Both were web-render-only** — the copy stays in the `../services/services.md` master + one-pager for the leave-behind, so nothing was synced (these are render-layout choices, not master edits).
