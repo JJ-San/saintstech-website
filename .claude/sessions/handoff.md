@@ -11,26 +11,21 @@ Executed the founder-decided work order to cut two sections from the live single
 - **Seam fix (the proof-rule watch-out):** removing the light fine-print section put the navy `.band` directly on the navy `#calculator` (two dark blocks). Added a 1px hairline `border-top:1px solid rgba(255,255,255,.10)` on `.calc` so the band→calculator boundary reads clearly. Checked at **390 / 768 / 1440** — the band reads as its own strip and the calculator clearly re-opens below it; not a merged slab.
 - **Cleanup:** dropped now-dead `.straight` / `.panel` / `.dogfood` CSS; bumped cache-buster to `styles.css?v=2026-06-16a`.
 
-## ▶ Pricing work order — approved 2026-06-16 (sync the services sheet)
+## ✅ Done 2026-06-16 — pricing sync (commit `b14b593`, pushed + deployed)
 
-Decided in a root strategy session, grounded in the consulting-pricing wiki (Enns *Pricing Creativity*, Weiss *Value-Based Fees*). This is a **master edit → render both** ("sync the services sheet"): change `../services/services.md`, then re-render the website (`#services` cards) **and** the one-pager PDF. Do **not** edit the website wording in isolation.
+Executed the approved root pricing work order (Enns *Pricing Creativity* / Weiss *Value-Based Fees*). Master `../services/services.md` edited, then mirrored into **both** renders (website `#services` cards + one-pager → PDF re-rendered via headless Edge). Proofed at 390/768/1440 on both renders.
 
-**Changes:**
-1. **Drop the word "fixed" from the on-page ranges.** Doctrine: publish *typical ranges*, not fixed numbers — the **fixed quote comes from the paid Assessment** (Step 2 already says so; make it explicit near the cards if needed). Reframe both tiers as "typically $X–$Y, depending on scope."
-2. **BUILD ceiling $15k → $25k.** New BUILD range **$7,500 – $25,000** (resolves the parked "BUILD ceiling" question). The top is the *high anchor*, not a "max scope."
-3. **Timeframes:**
-   - ENABLE: "delivered in days" → **"days to a couple of weeks"** ⚠ *CONFIRM exact wording with Josiah — his phrasing ("in days because it could be a few weeks") was ambiguous; keep it clearly shorter than BUILD's range.*
-   - BUILD: "2–3 weeks" → **"2–8 weeks"** (was over-specified, and tighter than the master's own "a few weeks").
-4. ENABLE price **unchanged** ($2,500–$6,000).
+- **Dropped "fixed"** from both card ranges — published ranges are now *indicative*; the fixed quote still comes from the paid Assessment (Step 2 + the `$1,500–2,500 fixed` Assessment tag left unchanged, which reinforces the doctrine).
+- **ENABLE:** `$2,500 – $6,000 · delivered in days to weeks, depending on scope` — timeframe wording confirmed by Josiah (his "depending on scope" carries the same indicative sense "Typically" carries on BUILD).
+- **BUILD:** `Typically $7,500 – $25,000 · delivered in 2–8 weeks` — ceiling 15k→25k as the high anchor (resolves the parked "BUILD ceiling" question); was "2–3 weeks".
+- **JSON-LD `priceRange`** bumped NZ$15,000 → NZ$25,000 to match.
+- Render note: the **website** drops the literal "·" between price and timeframe (the narrow cards wrap, so the flex gap + size/weight/colour hierarchy separates them); the **master + one-pager** keep the "·" (renders inline on the wide print card). Content is identical; only the separator glyph differs per render — a layout call.
 
-**Exact master lines to change in `../services/services.md`:**
-- ENABLE: `**$2,500 – $6,000 fixed · delivered in days**` → `**$2,500 – $6,000 · delivered in days to a couple of weeks**`
-- BUILD: `**Typically $7,500 – $15,000 fixed · delivered in a few weeks**` → `**Typically $7,500 – $25,000 · delivered in 2–8 weeks**`
-- Mirror in the website `#services` card `.price` lines and the one-pager `.price` lines.
+### ⚠ Follow-ups this opened (NOT done — need a call)
+1. **ROI calculator still quotes $7,500–$15,000** (`js/main.js`: line 98 copy + `BUILD_HI = 15000` in the payback math). **Deliberately left.** Raising `BUILD_HI` to 25000 lengthens high-end payback enough to flip the *default* slider verdict (6 hrs × $45) from "Borderline" to **"Honestly, no"** — clearly not intended. The $25k is a high anchor, not the *typical* build the calculator models, so $7,500–$15,000 is arguably still the right illustration. **Decision:** leave as-is / reword copy to "a typical build" without a hard ceiling / accept the more-pessimistic math. (Calculator is website-only, part of the standing "master reconciliation owed".)
+2. **Brain decision record missing:** `brain/wiki/.../service-architecture-three-layer.md` doesn't exist (brain is empty by design). Per `../services/README.md`, price changes should flow into that decision page + log. Capture this decision (drop "fixed" / $25k ceiling / Enns-Weiss rationale) at **root** when the brain wiki is next touched.
 
-Then: deploy the website (commit + push, hard-refresh, screenshot 390/768/1440) and re-render the one-pager PDF (headless Edge — see `../services/README.md`).
-
-**Parked (separate, bigger thread — NOT this work order):** make the per-job quote a **3-option good-better-best proposal** out of the Assessment (Enns Rule #2 / Weiss "choice of yeses"). That's a sales-motion change, tracked at root — don't build it into the website.
+**Parked (separate, bigger thread — root):** make the per-job quote a **3-option good-better-best proposal** out of the Assessment (Enns Rule #2 / Weiss "choice of yeses"). Sales-motion change, not a website change.
 
 Competitor revisit doc (context): `C:\Users\josia\Documents\STAS-NZ-competitors.md`.
 
