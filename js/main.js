@@ -28,6 +28,19 @@
     reveals.forEach(function(el){ io.observe(el); });
   }
 
+  /* ---- steps connector draws in when the row reveals ---- */
+  var stepsEl = document.querySelector('.steps');
+  if (stepsEl){
+    if (!('IntersectionObserver' in window) || reduce){
+      stepsEl.classList.add('is-drawn');
+    } else {
+      var stepsIO = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ if (e.isIntersecting){ stepsEl.classList.add('is-drawn'); stepsIO.unobserve(stepsEl); } });
+      }, { threshold: 0.35 });
+      stepsIO.observe(stepsEl);
+    }
+  }
+
   /* ---- the honest calculator ---- */
   var WEEKS = 48, EFFICIENCY = 0.8, SUPPORT_YR = 2400, BUILD_LO = 7500, BUILD_HI = 15000;
   var hoursEl = document.getElementById('calc-hours');
@@ -42,7 +55,7 @@
     var badgeEl   = document.getElementById('res-badge');
     var titleEl   = document.getElementById('res-title');
     var subEl     = document.getElementById('res-sub');
-    var rafA = null, rafS = null;
+    var rafA = null, rafS = null, prevBadge = null;
 
     function fmt(n){ return '$' + Math.round(n).toLocaleString('en-NZ'); }
 
@@ -107,6 +120,11 @@
         }
       }
       verdictEl.className = ('verdict ' + state).trim();
+      if (!reduce && prevBadge !== null && badge !== prevBadge){
+        void verdictEl.offsetWidth;        /* restart the animation */
+        verdictEl.classList.add('pulse');
+      }
+      prevBadge = badge;
       badgeEl.textContent = badge;
       titleEl.textContent = title;
       subEl.innerHTML = sub;
@@ -153,4 +171,17 @@
     }, { threshold: 0.15 });
     barIO.observe(contact);
   }
+
+  /* ---- nav scroll-progress fill (drives --scroll for .nav::after) ---- */
+  var docEl = document.documentElement;
+  function setProgress(){
+    var h = docEl.scrollHeight - docEl.clientHeight;
+    docEl.style.setProperty('--scroll', h > 0 ? Math.min(docEl.scrollTop / h, 1).toFixed(4) : '0');
+  }
+  var progTick = false;
+  window.addEventListener('scroll', function(){
+    if (!progTick){ requestAnimationFrame(function(){ setProgress(); progTick = false; }); progTick = true; }
+  }, { passive: true });
+  window.addEventListener('resize', setProgress, { passive: true });
+  setProgress();
 })();
