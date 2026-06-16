@@ -1,32 +1,19 @@
 # Session handoff — saintstech.co.nz website
 
-_Updated 2026-06-16. Durable "how to work" rules live in this folder's `CLAUDE.md`; this file = current state + what's next. **The top block is a ready-to-execute work order handed down from a root strategy session — start there.**_
+_Updated 2026-06-16. Durable "how to work" rules live in this folder's `CLAUDE.md`; this file = current state + what's next._
 
-## ▶ Ready to execute — two section removals (founder-decided 2026-06-16)
+## ✅ Done 2026-06-16 — two sections removed (commit `d9a25f5`, pushed + deployed)
 
-A root strategy session decided to cut two sections from the live single-page site. **Both are web-render-only** — do **not** touch the `../services/services.md` master or the one-pager PDF; the relevant copy stays there for the leave-behind. Working tree is clean; deploy = commit + `git push`.
+Executed the founder-decided work order to cut two sections from the live single-page site. **Both were web-render-only** — the copy stays in the `../services/services.md` master + one-pager for the leave-behind, so nothing was synced (these are render-layout choices, not master edits).
 
-### Task 1 — remove the "We run on what we sell" strip
-- In `index.html`, delete the whole `<section class="dogfood" aria-label="We run on what we sell">…</section>` block (it sits between the FAQ section and `#about`).
-- This is website-only copy — **confirmed not in the master**, so nothing to sync and no breadcrumb needed.
-
-### Task 2 — remove the "The fine print, up front" section
-- In `index.html`, delete the whole `<section class="section" aria-labelledby="straight-t">…</section>` block — i.e. the heading "The fine print, up front." plus its two panels, **"What we don't sell"** and **"Why fixed prices"** (it sits between the "ships with" `.band` and `#calculator`).
-- These two panels **do** live in the `services.md` master and the one-pager — **leave them there.** Drop a breadcrumb where the section was so a future "sync the services sheet" doesn't silently re-add it:
-  ```html
-  <!-- Web render intentionally omits "Straight answers / fine print" (what we don't sell · why fixed prices) — founder call 2026-06-16. Still in services.md master + one-pager; don't re-add on sync. -->
-  ```
-
-### ⚠ Proof-rule watch-out (the reason this needs eyes, not just a delete)
-Removing the fine-print section makes the **navy `.band` ("ships with") land directly on the navy `#calculator`** — two dark blocks with no light section between them. **Screenshot the band→calculator seam** after the edit. If it reads as one merged slab, add separation (a divider, extra spacing, or give one section a contrasting background) and say what you did. (The faq→about seam is fine — light grey to white.)
-
-### Cleanup + ship
-- `.straight` and `.panel` rules in `css/styles.css` become unused after Task 2 — optional to delete. **If you touch CSS, bump the `styles.css?v=` cache-buster** in `index.html`.
-- Commit + push (deploy), hard-refresh (Ctrl+Shift+R), screenshot at **390 / 768 / 1440** and look.
+- **Removed the "We run on what we sell" dogfood strip** (was between FAQ and `#about`). Website-only copy, not in the master — no breadcrumb needed. FAQ (grey) now flows straight into About (white): clean seam, verified.
+- **Removed the "Straight answers / The fine print, up front" section** (the two panels **What we don't sell** · **Why fixed prices**, was between the "ships with" `.band` and `#calculator`). These **do** live in the master + one-pager — **left there**; an HTML breadcrumb now sits where the section was so a future "sync the services sheet" won't silently re-add it.
+- **Seam fix (the proof-rule watch-out):** removing the light fine-print section put the navy `.band` directly on the navy `#calculator` (two dark blocks). Added a 1px hairline `border-top:1px solid rgba(255,255,255,.10)` on `.calc` so the band→calculator boundary reads clearly. Checked at **390 / 768 / 1440** — the band reads as its own strip and the calculator clearly re-opens below it; not a merged slab.
+- **Cleanup:** dropped now-dead `.straight` / `.panel` / `.dogfood` CSS; bumped cache-buster to `styles.css?v=2026-06-16a`.
 
 ## ⏸ Strategy context — do NOT act on this yet
 - The live strategy thread is the **pricing display** in `#services` (the $ ranges + "delivered in days" / "delivered in 2–3 weeks"). **Undecided** — leave prices/timelines exactly as they are until Josiah calls it. Competitor revisit doc: `C:\Users\josia\Documents\STAS-NZ-competitors.md`.
-- FYI only: the "Why fixed prices" panel removed in Task 2 was the on-page justification for those prices. Its removal is a separate, already-made call and does **not** pre-decide the pricing thread.
+- FYI only: the "Why fixed prices" panel removed above (the fine-print cut) was the on-page justification for those prices. Its removal is a separate, already-made call and does **not** pre-decide the pricing thread.
 
 ## Status (current live site)
 - LIVE over HTTPS — https://saintstech.co.nz. Repo **github.com/JJ-San/saintstech-website** (`main`, root). Working tree clean.
