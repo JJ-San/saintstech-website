@@ -6,10 +6,13 @@ Output: assets/fonts/*.woff2.  Run via the project venv:
     .venv\\Scripts\\python.exe scripts\\subset-fonts.py
 
 Fonts:
-  - Poppins (body / UI) — 6 static weights, brand-owned (OFL).
-  - Newsreader (headlines H1/H2 only) — ONE variable WOFF2 keeping the wght
-    axis (opsz is pinned in CSS via font-variation-settings). Source:
+  - Source Sans 3 (body / UI / SVG) — ONE variable WOFF2, wght axis limited to
+    300-800. Humanist sans that pairs with the Newsreader serif. Source:
     github.com/google/fonts (OFL).
+  - Newsreader (headlines H1/H2 only) — ONE variable WOFF2 keeping the wght
+    axis, opsz pinned to display. Source: github.com/google/fonts (OFL).
+  - Poppins — retired from the live pages; still subset here ONLY because the
+    og-image / touch-icon generators in assets/og/ reference the WOFF2.
 """
 from pathlib import Path
 
@@ -61,3 +64,21 @@ subset_main([
 ])
 ntmp.unlink()
 print(f"{nout.name}: {nsrc.stat().st_size // 1024} KB -> {nout.stat().st_size // 1024} KB")
+
+# Source Sans 3 — variable humanist sans for body/UI. Limit wght to 300-800.
+ssrc = SRC / "SourceSans3[wght].ttf"
+stmp = OUT / "_sourcesans_inst.ttf"
+sout = OUT / "SourceSans3.woff2"
+_sf = TTFont(str(ssrc))
+instantiateVariableFont(_sf, {"wght": (300, 800)}, inplace=True)
+_sf.save(str(stmp))
+subset_main([
+    str(stmp),
+    f"--output-file={sout}",
+    "--flavor=woff2",
+    f"--unicodes={UNICODES}",
+    "--layout-features=kern,liga",
+    "--no-hinting",
+])
+stmp.unlink()
+print(f"{sout.name}: {ssrc.stat().st_size // 1024} KB -> {sout.stat().st_size // 1024} KB")

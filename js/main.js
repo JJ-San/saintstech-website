@@ -61,7 +61,7 @@
 
     function paint(input){
       var pct = (input.value - input.min) / (input.max - input.min) * 100;
-      input.style.background = 'linear-gradient(90deg, var(--teal-bright) ' + pct + '%, rgba(255,255,255,.16) ' + pct + '%)';
+      input.style.background = 'linear-gradient(90deg, var(--teal-deep) ' + pct + '%, rgba(43,42,30,.14) ' + pct + '%)';
     }
 
     function countTo(el, target, prevRaf){
