@@ -2,6 +2,16 @@
 
 _Updated 2026-06-16. Durable "how to work" rules live in this folder's `CLAUDE.md`; this file = current state + what's next._
 
+## ▶ Owed: sync the one-pager to the new web font system
+
+The website now uses **Newsreader headlines + Source Sans 3 body**; the one-pager (`../services/services-onepager.html` → PDF) is still **all Poppins**. Josiah said this is minor and to bring the one-pager in line with the website later. When picked up: add Newsreader (headings) + Source Sans 3 (body) to the one-pager's `@font-face` (TTFs are in `../services/assets/fonts/`), re-render the PDF (headless Edge — `../services/README.md`). Not urgent.
+
+## ✅ Done 2026-06-16 — body font → Source Sans 3 + calculator "paper" (commit `26aaba2`, deployed)
+
+Completed the font system and restyled the calculator. **CSS/JS/font only — no copy changes.** Verified 390/768/1440, no console errors. Cache-buster → `2026-06-16d`.
+- **Body/UI/SVG: Poppins → Source Sans 3** — a humanist sans that shares Newsreader's old-style skeleton, so heading + body finally read as one family (Poppins was geometric, slightly cool against the serif). Self-hosted variable WOFF2 (wght 300–800, ~21 KB) via `subset-fonts.py` (source `SourceSans3[wght].ttf` in `../services/assets/fonts/`, OFL). **Poppins retired** from live pages (404 + index now Source Sans 3 + Newsreader); Poppins WOFF2 kept ONLY because `assets/og/` generators reference them — if those get re-rendered, update them too.
+- **Calculator → cream "worksheet" on a dark "desk":** the `#calculator` section stays dark (preserves the page's dark beat) but the calculating surface is now a cream paper sheet (`.calc-sheet` wrapper) — cream stock, faint ledger ruling, grain as paper tooth, soft drop-shadow. `.calc` is no longer `.on-dark`; all inputs/results/verdict re-inked for the light surface; slider fill recoloured (CSS + the JS `paint()`); verdict CTA → `btn-solid`; verdict title set in Newsreader. New tokens: `--paper-cream`, `--paper-line`, `--ink-warm`, `--ink-warm-soft`.
+
 ## ✅ Done 2026-06-16 — typography: Newsreader serif headlines + larger scale (commit `1c5e65b`, deployed)
 
 Headline face decided. Mocked up Poppins / Fraunces / Newsreader / Bricolage side-by-side; Josiah liked Fraunces but found it hard to read (audience skews **older**), so chose **Newsreader** + a size bump.
