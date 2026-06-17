@@ -1,6 +1,6 @@
 # Session handoff — saintstech.co.nz website
 
-_Updated 2026-06-16. Durable "how to work" rules live in this folder's `CLAUDE.md`; this file = current state + what's next._
+_Updated 2026-06-18 (session close). Durable "how to work" rules live in this folder's `CLAUDE.md`; this file = current state + what's next. **Live & deployed; working tree clean** (only untracked file is `saintstech old style.html`, a local reference). Serena project memory `project_overview` written. Latest commits: mobile-nav wordmark stack (`a1e67f4`) · body→Source Sans 3 + calculator "paper" (`26aaba2`) · type readability weight-400 (`1aa94e2`) · Newsreader headlines (`1c5e65b`)._
 
 ## ▶ Owed: sync the one-pager to the new web font system
 
