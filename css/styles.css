@@ -130,6 +130,7 @@ h3{font-size:clamp(1.1rem,1rem + .45vw,1.35rem);}
 .brand-mark{display:block;height:2.5rem;width:auto;transform:translateY(var(--logo-nudge,0));}
 .brand-lockup{font-size:1.15rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:var(--body);white-space:nowrap;}
 .brand-lockup b{font-weight:800;color:var(--navy);}
+.bl-rest{margin-left:.3em;}
 .nav-links{display:flex;align-items:center;gap:1.6rem;margin-left:auto;}
 .nav-links a:not(.btn){font-size:.92rem;font-weight:600;color:var(--navy);text-decoration:none;padding-block:.35rem;
   background-image:linear-gradient(var(--teal),var(--teal));background-repeat:no-repeat;background-position:0 100%;background-size:0% 2px;
@@ -500,10 +501,15 @@ input[type=range]::-moz-range-track{background:transparent;}
   .steps{grid-template-columns:1fr;}
 }
 @media (max-width: 600px){
-  .bl-rest{display:none;}
+  /* stack the wordmark beside the logo: SAINTS over Technologies & Services */
+  .nav-inner{gap:.7rem;}
+  .brand{gap:.5rem;}
+  .brand-lockup{display:flex;flex-direction:column;line-height:1.05;font-size:1.05rem;letter-spacing:.04em;}
+  .bl-rest{margin-left:0;margin-top:.16rem;font-size:.72rem;font-weight:500;letter-spacing:.01em;text-transform:none;color:var(--body);}
 }
 @media (max-width: 430px){
   .brand-mark{height:2rem;}
-  .brand-lockup{font-size:.95rem;}
+  .brand-lockup{font-size:1rem;}
   .btn{padding:.85rem 1.2rem;}
+  .nav .btn{padding:.6rem .85rem;font-size:.82rem;}  /* trim CTA so the bigger stacked wordmark clears it */
 }
