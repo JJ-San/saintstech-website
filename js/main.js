@@ -108,7 +108,7 @@
         if (pHi <= 14){
           state = ''; badge = 'Worth automating';
           title = 'This one should be a machine.';
-          sub = 'A build at $7,500–$15,000 pays for itself in about <b>' + pLo + '\u2013' + pHi + ' months</b>, then keeps saving \u2248 <b>' + fmt(saving) + '/yr</b> after support costs.';
+          sub = 'A typical build pays for itself in about <b>' + pLo + '\u2013' + pHi + ' months</b>, then keeps saving \u2248 <b>' + fmt(saving) + '/yr</b> after support costs.';
         } else if (pHi <= 26){
           state = 'is-maybe'; badge = 'Borderline';
           title = 'Worth a conversation.';
