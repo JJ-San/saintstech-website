@@ -11,6 +11,9 @@ Fonts:
     github.com/google/fonts (OFL).
   - Newsreader (headlines H1/H2 only) — ONE variable WOFF2 keeping the wght
     axis, opsz pinned to display. Source: github.com/google/fonts (OFL).
+  - Atkinson Hyperlegible (body READING text only — paragraphs/prose) — two static
+    WOFF2 (400 + 700; Braille Institute, OFL). Max-legibility face for the older
+    audience; UI / labels / headings stay Source Sans 3 / Newsreader.
   - Poppins — retired from the live pages; still subset here ONLY because the
     og-image / touch-icon generators in assets/og/ reference the WOFF2.
 """
@@ -26,7 +29,11 @@ OUT = ROOT / "assets" / "fonts"
 # (en/em dashes, curly quotes, bullet, ellipsis) + euro + minus.
 UNICODES = "U+0020-007E,U+00A0-00FF,U+2010-2027,U+2030-203A,U+20AC,U+2212"
 
-FACES = ["Poppins-Light", "Poppins-Regular", "Poppins-Medium", "Poppins-SemiBold", "Poppins-Bold", "Poppins-ExtraBold"]
+# Static faces, subset 1:1 (no axis instancing). Poppins is retired (kept only for the
+# assets/og/ generators). Atkinson Hyperlegible (400/700) is the body READING face —
+# a max-legibility sans for the older audience, scoped to prose in css/styles.css.
+FACES = ["Poppins-Light", "Poppins-Regular", "Poppins-Medium", "Poppins-SemiBold", "Poppins-Bold", "Poppins-ExtraBold",
+         "AtkinsonHyperlegible-Regular", "AtkinsonHyperlegible-Bold"]
 
 OUT.mkdir(parents=True, exist_ok=True)
 for face in FACES:
