@@ -34,8 +34,7 @@
   "description": "AI and automation for NZ small businesses on Microsoft 365 and Xero. Fixed prices, honest assessments, built to be depended on.",
   "address": {"@type": "PostalAddress", "addressLocality": "Auckland", "addressCountry": "NZ"},
   "areaServed": {"@type": "Country", "name": "New Zealand"},
-  "founder": {"@type": "Person", "name": "Josiah Santos", "jobTitle": "Founder"},
-  "priceRange": "NZ$1,500–NZ$25,000"
+  "founder": {"@type": "Person", "name": "Josiah Santos", "jobTitle": "Founder"}
 }
 </script>
 <script type="application/ld+json">
@@ -46,7 +45,7 @@
     {"@type": "Question", "name": "What happens to our data?",
      "acceptedAnswer": {"@type": "Answer", "text": "Before anything runs, we set safety rules with you: what can go into AI, and what never does. Those rules are written down, and your team is trained on them."}},
     {"@type": "Question", "name": "What if it breaks after you leave?",
-     "acceptedAnswer": {"@type": "Answer", "text": "Every build ships with a defect warranty and a support plan from $200/month: monitoring, fixes, and updates when your business changes."}},
+     "acceptedAnswer": {"@type": "Answer", "text": "Every build ships with a defect warranty and an ongoing support plan: monitoring, fixes, and updates when your business changes."}},
     {"@type": "Question", "name": "Will we be locked into you?",
      "acceptedAnswer": {"@type": "Answer", "text": "No. Every build is documented, with user guides and an operations manual, and your team is trained to run it without us."}},
     {"@type": "Question", "name": "Do you work outside Auckland?",
@@ -212,7 +211,7 @@
         <li class="step reveal">
           <span class="num" aria-hidden="true">02</span>
           <h3>Assess</h3>
-          <span class="tag">$1,500–2,500 fixed</span>
+          <span class="tag">Fixed price, quoted upfront</span>
           <p>The <b>AI Opportunity Assessment</b>: a written roadmap of the jobs worth automating, what each costs you now, what fixing it is worth, and a fixed quote. Yours to keep, <b>fully credited</b> against any build within 90 days.</p>
         </li>
         <li class="step reveal">
@@ -224,7 +223,7 @@
         <li class="step reveal">
           <span class="num" aria-hidden="true">04</span>
           <h3>Support</h3>
-          <span class="tag">From $200/mo</span>
+          <span class="tag">Ongoing support plan</span>
           <p>We keep it running: monitoring, fixes under warranty, updates when your business changes, and training for new staff.</p>
         </li>
       </ol>
@@ -241,7 +240,7 @@
         <article class="card reveal">
           <p class="kicker">Enable</p>
           <h3>AI in your people's hands</h3>
-          <p class="price"><span class="amt">$2,500 – $6,000</span> <span>delivered in days to weeks, depending on scope</span></p>
+          <p class="price"><span class="amt">Fixed price</span> <span>delivered in days to weeks, depending on scope</span></p>
           <p>Your team set up to use AI properly on their everyday work, the same tools we run our own firm on.</p>
           <ul>
             <li><b>Setup</b> of Claude for your team, configured for your business</li>
@@ -254,7 +253,7 @@
         <article class="card card--featured reveal">
           <p class="kicker">Build</p>
           <h3>AI inside your processes</h3>
-          <p class="price"><span>Typically</span> <span class="amt">$7,500 – $25,000</span> <span>delivered in 2–8 weeks, depending on scope</span></p>
+          <p class="price"><span class="amt">Fixed price</span> <span>delivered in 2–8 weeks, depending on scope</span></p>
           <p>One painful recurring job, turned into a tool that runs itself, built to be depended on. Sometimes that's automation on the tools you already own; sometimes it's custom software built into how your business works, an Office add-in, an Excel tool, or an integration between your systems.</p>
           <ul>
             <li><b>Tested</b> against your real-world scenarios before it ships</li>
@@ -293,6 +292,7 @@
   </section>
 
   <!-- Web render intentionally omits "Straight answers / fine print" (what we don't sell · why fixed prices) — founder call 2026-06-16. Still in services.md master + one-pager; don't re-add on sync. -->
+  <!-- Web render intentionally shows NO dollar figures — founder call 2026-07-28, "for now". Applies to: process step tags (Assess, Support), both service card .price lines, the FAQ + JSON-LD support answers, JSON-LD priceRange (removed), and the calculator result copy in js/main.js. Master + one-pager KEEP their prices; replacement wording is declared in services.md → "Pricing display (website)". Don't re-add on sync. -->
 
   <section id="calculator" class="calc section" aria-labelledby="calc-t">
     <div class="container">
@@ -314,7 +314,7 @@
             <input type="range" id="calc-rate" min="25" max="150" step="5" value="45">
             <p class="hint">Wages plus overhead. Be honest.</p>
           </div>
-          <p class="calc-note">Deliberately rough and conservative: assumes automation takes ~80% of the manual time over 48 working weeks, and includes support at $200/mo. The real answer comes from the free 60–90&nbsp;min talk.</p>
+          <p class="calc-note">Deliberately rough and conservative: assumes automation takes ~80% of the manual time over 48 working weeks, and includes the cost of ongoing support. The real answer comes from the free 60–90&nbsp;min talk.</p>
         </div>
         <div class="calc-out" aria-live="polite">
           <noscript><p style="font-weight:300">The calculator needs JavaScript. Or just email us the numbers and we'll do the maths in the free talk.</p></noscript>
@@ -345,7 +345,7 @@
         </details>
         <details>
           <summary>What if it breaks after you leave?</summary>
-          <p class="a">Every build ships with a <b>defect warranty</b> and a support plan from $200/month: monitoring, fixes, and updates when your business changes.</p>
+          <p class="a">Every build ships with a <b>defect warranty</b> and an ongoing support plan: monitoring, fixes, and updates when your business changes.</p>
         </details>
         <details>
           <summary>Will we be locked into you?</summary>
@@ -405,7 +405,7 @@
         </li>
         <li class="reveal">
           <h3>Still here afterwards</h3>
-          <p>Support from $200/mo; your tools keep up when your business changes.</p>
+          <p>An ongoing support plan; your tools keep up when your business changes.</p>
         </li>
       </ul>
     </div>

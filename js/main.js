@@ -100,7 +100,7 @@
       if (saving < 1500){
         state = 'is-no'; badge = 'Honestly, no';
         title = 'Keep doing this one by hand.';
-        sub = 'A build won\u2019t pay for itself at these numbers, and we\u2019d tell you the same in person. If it still annoys you, the <b>Enable</b> tier ($2,500–6,000) might cover it with training. The talk is free either way.';
+        sub = 'A build won\u2019t pay for itself at these numbers, and we\u2019d tell you the same in person. If it still annoys you, the <b>Enable</b> tier might cover it with training. The talk is free either way.';
       } else {
         var perMonth = saving / 12;
         var pLo = Math.max(1, Math.ceil(BUILD_LO / perMonth));
@@ -112,11 +112,11 @@
         } else if (pHi <= 26){
           state = 'is-maybe'; badge = 'Borderline';
           title = 'Worth a conversation.';
-          sub = 'Payback lands around <b>' + pLo + '\u2013' + pHi + ' months</b>. Sometimes that\u2019s worth it for the hours back; sometimes training (<b>Enable</b>, $2,500–6,000) is the smarter buy. The free talk settles it.';
+          sub = 'Payback lands around <b>' + pLo + '\u2013' + pHi + ' months</b>. Sometimes that\u2019s worth it for the hours back; sometimes training (the <b>Enable</b> tier) is the smarter buy. The free talk settles it.';
         } else {
           state = 'is-no'; badge = 'Honestly, no';
           title = 'Keep doing this one by hand.';
-          sub = 'Payback would take over two years, so we\u2019d talk you out of a build. If it still annoys you, the <b>Enable</b> tier ($2,500–6,000) might cover it with training.';
+          sub = 'Payback would take over two years, so we\u2019d talk you out of a build. If it still annoys you, the <b>Enable</b> tier might cover it with training.';
         }
       }
       verdictEl.className = ('verdict ' + state).trim();
